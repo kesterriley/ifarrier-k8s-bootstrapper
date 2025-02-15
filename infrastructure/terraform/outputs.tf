@@ -59,3 +59,9 @@ output "argocd_helm_chart_values" {
 output "argocd_helm_chart_manifest" {
   value = var.enable_argocd_helm_release ? helm_release.argocd[0].manifest : null
 }
+
+# ================================== CLUSTER ID ==================================
+
+output "cluster-id" {
+  value = "digitalocean_kubernetes_cluster.bootstrapper.id"
+}

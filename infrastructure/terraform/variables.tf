@@ -1,6 +1,11 @@
 # ===================== DO CONFIG VARS =======================
-variable "do_token" {
+variable "digital_ocean_token" {
   description = "Personal Access Token to access the DigitalOcean API"
+}
+
+variable "kubeconfig_path" {
+  description = "The path to save the kubeconfig to"
+  default     = "~/.kube/config"
 }
 
 # ===================== DOKS CONFIG VARS =======================

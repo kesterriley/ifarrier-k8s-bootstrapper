@@ -1,21 +1,20 @@
 # ===================== DO CONFIG VARS =======================
-do_token = "dop_v1..."
-
+# do_token = "dop_v1..."
 # ============================== DOKS CONFIG ==============================
 
-doks_cluster_name_prefix = "k8s-bootstrapper"
-doks_k8s_version         = "1.29"
-doks_cluster_region      = "ams3"
+doks_cluster_name_prefix = "k8s-ifarrier"
+doks_k8s_version         = "1.32.1"
+doks_cluster_region      = "lon1"
 
 # Main pool configuration (REQUIRED)
 
 doks_default_node_pool = {
-  name       = "bootstrapper-main"
-  node_count = 3
+  name       = "ifarrier-main"
+  node_count = 1
   size       = "s-2vcpu-4gb"
   auto_scale = true
-  min_nodes  = 3
-  max_nodes  = 5  
+  min_nodes  = 1
+  max_nodes  = 2
 }
 
 # Create additional DOKS node pools 
@@ -23,7 +22,7 @@ doks_default_node_pool = {
 # Created by each component, such as: observer (OPTIONAL)
 
 doks_additional_node_pools = {
-  "bootstrapper-observer" = {
+  "ifarrier-observer" = {
     node_count = 1
     size       = "s-2vcpu-4gb"
   }

@@ -1,0 +1,8 @@
+services:
+  dockeroperator:
+    build:
+      dockerfile: .docker/Dockerfile
+    volumes:
+      - .:/app
+    attach: false
+    env_file: ".env"
