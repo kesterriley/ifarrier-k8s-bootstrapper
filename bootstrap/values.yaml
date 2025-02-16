@@ -9,7 +9,7 @@ guestbook:
 kyverno:
   enable: false  
 logging:
-  enable: false
+  enable: true
 observability:
   enable: false
   pdkey:

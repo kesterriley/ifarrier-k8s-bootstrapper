@@ -51,7 +51,7 @@ Follow the guide in the order stated below:
 
 1. [DigitalOcean Infrastructure Automation via Terraform](./infrastructure/terraform/README.md)
 2. [Bootstrapping using Argo CD](./bootstrap/README.md)
-3. [Set up Observability using Robusta](./observability/README.md)
+
 
 Here is the overview of the architecture that we will set up:
 

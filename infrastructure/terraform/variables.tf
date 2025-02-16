@@ -58,12 +58,12 @@ variable "doks_additional_node_pools" {
 # ===================== DOCR CONFIG VARS =======================
 variable "container_registry_name" {
   type    = string
-  default = "bootstrapper-cr"
+  default = "ifarrier-cr"
 }
 
 variable "enable_container_registry" {
   type        = bool
-  default     = false
+  default     = true
   description = "Enable/disable DigitalOcean Container Registry"
 }
 
@@ -139,7 +139,7 @@ variable "argocd_helm_release_name" {
 
 variable "argocd_helm_chart_version" {
   type        = string
-  default     = "6.5.0"
+  default     = "7.8.2"
   description = "ArgoCD Helm chart version to deploy"
 }
 variable "argocd_helm_chart_timeout_seconds" {
