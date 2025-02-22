@@ -2,8 +2,6 @@
 domain: 
 storageClass: "do-block-storage"
 # Application specific
-bots:
-  enable: false
 kyverno:
   enable: false  
 logging:

@@ -24,10 +24,6 @@ By default, we have disabled most of the apps, but you can easily enable them by
 domain: 
 storageClass: "do-block-storage"
 # Application specific
-bots:
-  enable: false
-guestbook:
-  enable: false
 kyverno:
   enable: false  
 logging:
