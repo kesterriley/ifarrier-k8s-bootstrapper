@@ -9,7 +9,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-issuer
 spec:
   rules:
-  # Add domain
+    # Add domain
     - host: argocd.kester.pro
       http:
         paths:
@@ -23,5 +23,5 @@ spec:
   tls:
     - secretName: argocd-secret-tls
       hosts:
-      # Add domain
+        # Add domain
         - argocd.kester.pro

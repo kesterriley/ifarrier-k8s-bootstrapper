@@ -142,6 +142,7 @@ variable "argocd_helm_chart_version" {
   default     = "7.8.2"
   description = "ArgoCD Helm chart version to deploy"
 }
+
 variable "argocd_helm_chart_timeout_seconds" {
   type        = number
   default     = 300

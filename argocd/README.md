@@ -11,6 +11,19 @@ To access Argo CD via an FQDN, we need to configure a few things.
 
 ## Apply Configurations
 
+we can patch like this:
+
+```kubectl -n argocd patch deployment argocd-server --type json -p='[ { "op": "replace", "path":"/spec/template/spec/containers/0/command","value": ["argocd-server","--insecure"] }]'```
+
+kubectl edit deployment -n argocd argocd-server
+
+      - args:                             
+        - /usr/local/bin/argocd-server
+        - --port=8080                     
+        - --metrics-port=8083              
+        - --insecure
+        env:
+
 ```bash
 # Disable internal TLS to avoid internal redirection loops from HTTP to HTTPS. The API server should run with TLS disabled.    
 kubectl patch deployment -n argocd argocd-server --patch-file no-tls.yaml 
