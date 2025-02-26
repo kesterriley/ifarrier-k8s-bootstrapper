@@ -1,9 +1,6 @@
 # Global
 domain: kester.pro
 storageClass: "do-block-storage"
-# Application specific
-kyverno:
-  enable: false  
 logging:
   enable: true
 observability:
@@ -14,6 +11,4 @@ observability:
 traefik:
   enable: true  
 trivy:
-  enable: true
-mariadb:
   enable: true
