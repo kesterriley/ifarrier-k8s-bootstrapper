@@ -21,6 +21,8 @@ RUN curl -OL "https://github.com/bitnami-labs/sealed-secrets/releases/download/v
 RUN tar -xvzf kubeseal-${kubesealVersion}-linux-amd64.tar.gz kubeseal
 RUN install -m 755 kubeseal /usr/local/bin/kubeseal
 
+RUN alias k='kubectl'
+
 VOLUME ["/app"]
 WORKDIR /app
 

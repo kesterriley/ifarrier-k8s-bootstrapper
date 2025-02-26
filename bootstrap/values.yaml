@@ -15,3 +15,5 @@ traefik:
   enable: true  
 trivy:
   enable: true
+mariadb:
+  enable: true

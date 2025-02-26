@@ -1,0 +1,23 @@
+{{- if .Values.kyverno.enable }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mariadb
+  namespace: argocd
+spec:
+  destination:
+    namespace: mariadb
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: kyverno
+    repoURL: ghcr.io/mariadb/mariadb
+    targetRevision: 10.6.21-focal
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
+{{- end }}
