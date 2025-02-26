@@ -62,5 +62,3 @@ kubectl -n argocd port-forward svc/argocd-server 8080:80
 >Note: [**Accessing Argo CD via FQDN (optional)**](../argocd/README.md)
 
 ![argocd-ui](../docs/assets/argocd-ui.png)
-
-[**Next steps »**](../observability/README.md)
