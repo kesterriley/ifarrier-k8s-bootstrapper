@@ -52,7 +52,7 @@ kubectl apply -f bootstrap/bootstrap.yaml
 
 ```bash
 # Get the argo password
-kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+    kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 # Expose the argocd-server and login with the credentials on localhost:8080
 kubectl -n argocd port-forward svc/argocd-server 8080:80
 # Open the browser and go to localhost:8080 to access Argo CD UI
