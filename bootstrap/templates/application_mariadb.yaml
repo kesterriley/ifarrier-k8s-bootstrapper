@@ -1,4 +1,4 @@
-{{- if .Values.kyverno.enable }}
+{{- if .Values.mariadb.enable }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
