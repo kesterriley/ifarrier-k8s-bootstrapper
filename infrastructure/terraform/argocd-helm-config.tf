@@ -8,7 +8,6 @@ resource "helm_release" "argocd" {
   timeout          = var.argocd_helm_chart_timeout_seconds
   create_namespace = true
 
-
   # Additional Helm values
   # Enable if you want to install high-availability argocd
   # values = [
