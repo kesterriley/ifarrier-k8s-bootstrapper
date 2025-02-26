@@ -1,5 +1,5 @@
 # Global
-domain: 
+domain: kester.pro
 storageClass: "do-block-storage"
 # Application specific
 kyverno:

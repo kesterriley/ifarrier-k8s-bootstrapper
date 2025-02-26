@@ -14,3 +14,16 @@ resource "helm_release" "argocd" {
   #   file(var.argocd_additional_helm_values_file)
   # ]
 }
+
+resource "helm_release" "argocd-apps" {
+  depends_on = [helm_release.argocd]
+  chart      = "argocd-apps"
+  name       = "argocd-apps"
+  namespace  = "argocd"
+  repository = "https://argoproj.github.io/argo-helm"
+
+  # (6)
+  values = [
+    file("../../bootstrap/bootstrap.yaml")
+  ]
+}
