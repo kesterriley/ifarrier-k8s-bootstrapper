@@ -2,21 +2,25 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: ifarrier-backend
+  namespace: argocd
 spec:
   destination:
     namespace: ifarrier
     server: https://kubernetes.default.svc
   source:
     path: .kubernetes
-    repoURL: https://github.com/kesterriley/iFarrier-main.git
+    repoURL: git@github.com:kesterriley/iFarrier-main.git
     targetRevision: HEAD
     directory:
       recurse: true
-  sources: []
   project: default
   syncPolicy:
+    retry:
+      limit: 2
     automated:
       prune: true
       selfHeal: true
+      allowEmpty: false
     syncOptions:
       - CreateNamespace=true
+      - Replace=true
