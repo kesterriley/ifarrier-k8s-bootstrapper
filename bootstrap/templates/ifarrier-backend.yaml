@@ -9,10 +9,8 @@ spec:
     server: https://kubernetes.default.svc
   source:
     path: .kubernetes
-    repoURL: https://github.com/kesterriley/iFarrier-main.git
+    repoURL: git@github.com:/kesterriley/iFarrier-main.git
     targetRevision: HEAD
-    directory:
-      recurse: true
   project: default
   syncPolicy:
     retry:
