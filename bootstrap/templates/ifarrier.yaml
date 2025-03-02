@@ -11,6 +11,8 @@ spec:
     path: .kubernetes
     repoURL: git@github.com:kesterriley/iFarrier-install.git
     targetRevision: HEAD
+    directory:
+      recurse: true
   project: default
   syncPolicy:
     retry:
