@@ -45,7 +45,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/prometheus-community/helm-charts
-    targetRevision: main
+    targetRevision: HEAD
     path: charts/kube-prometheus-stack/charts/crds/crds  # ✅ Corrected path
     directory:
       recurse: true
