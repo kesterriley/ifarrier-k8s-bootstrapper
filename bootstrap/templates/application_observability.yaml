@@ -74,33 +74,35 @@ metadata:
   name: observability
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "0"
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: 'https://prometheus-community.github.io/helm-charts'
+    repoURL: https://prometheus-community.github.io/helm-charts
+    chart: kube-prometheus-stack
     targetRevision: 69.8.2
     helm:
+      releaseName: observability
       skipCrds: false
       values: |
-        # alertmanager:
-        #   config:
-        #     route:
-        #       group_by: ['namespace']
-        #       group_wait: 30s
-        #       group_interval: 5m
-        #       repeat_interval: 12h
-        #       receiver: default
-        #       routes:
-        #       - receiver: default
-        #         matchers:
-        #           - alertname =~ "InfoInhibitor|Watchdog"
-        #     receivers:
-        #       - name: default
-        #         pagerduty_configs:
-        #         - service_key: {{ .Values.observability.pdkey }}
+        alertmanager:
+          config:
+            route:
+              group_by: ['namespace']
+              group_wait: 30s
+              group_interval: 5m
+              repeat_interval: 12h
+              receiver: default
+              routes:
+              - receiver: default
+                matchers:
+                  - alertname =~ "InfoInhibitor|Watchdog"
+            receivers:
+              - name: default
+                pagerduty_configs:
+                - service_key: {{ .Values.observability.pdkey }}
         prometheus:
           prometheusSpec:
             retention: {{ .Values.observability.retention }}
@@ -112,25 +114,23 @@ spec:
                   resources:
                     requests:
                       storage: {{ .Values.observability.storageSize }}
-        # grafana:
-        #   service:
-        #     # type: LoadBalancer
-        #   additionalDataSources:
-        #     - name: loki
-        #       type: loki
-        #       url: http://loki.observability.svc.cluster.local:3100
-        #     - name: tempo
-        #       type: tempo
-        #       url: http://tempo.observability.svc.cluster.local:3100
-    chart: kube-prometheus-stack
+        grafana:
+          service:
+            # type: LoadBalancer
+          additionalDataSources:
+            - name: loki
+              type: loki
+              url: http://loki.observability.svc.cluster.local:3100
+            - name: tempo
+              type: tempo
+              url: http://tempo.observability.svc.cluster.local:3100
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: "https://kubernetes.default.svc"
     namespace: observability
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
     syncOptions:
       - CreateNamespace=true
       - Replace=true
-      - PruneLast=true
+    automated:
+      prune: true
+      selfHeal: true
