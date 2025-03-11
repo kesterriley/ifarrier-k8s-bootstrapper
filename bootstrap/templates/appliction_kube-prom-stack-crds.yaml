@@ -28,6 +28,37 @@
 #       selfHeal: true
 # {{- end }}
 
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kube-prometheus-stack-crds
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "-1"
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://prometheus-community.github.io/helm-charts
+#     chart: kube-prometheus-stack
+#     targetRevision: main #69.8.2  # Use the latest stable version if needed
+#     helm:
+#       releaseName: kube-prometheus-stack
+#       values: |
+#         upgradeJob:
+#           enabled: true  # Ensures CRDs upgrade job runs
+#   destination:
+#     server: "https://kubernetes.default.svc"
+#     namespace: observability
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true
+#       - Replace=true
+#     automated:
+#       prune: true
+#       selfHeal: true
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -40,14 +71,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://prometheus-community.github.io/helm-charts
-    chart: kube-prometheus-stack
-    targetRevision: main #69.8.2  # Use the latest stable version if needed
+    repoURL: https://github.com/prometheus-community/helm-charts.git
+    path: charts/kube-prometheus-stack/charts/crds
+    targetRevision: main
     helm:
-      releaseName: kube-prometheus-stack
-      values: |
-        upgradeJob:
-          enabled: true  # Ensures CRDs upgrade job runs
+      releaseName: kube-prometheus-stack-crds
   destination:
     server: "https://kubernetes.default.svc"
     namespace: observability
@@ -58,4 +86,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
 
