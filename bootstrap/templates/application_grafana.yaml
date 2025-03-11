@@ -51,7 +51,7 @@ spec:
         adminPassword: "jasdas#198*HASDSSADAS" # Set a secure password
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: observability
   syncPolicy:
     automated:
       prune: true
