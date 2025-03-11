@@ -44,10 +44,11 @@ spec:
   project: default
   source:
     repoURL: https://github.com/prometheus-operator/prometheus-operator.git
-    path: bundle
+    path: .  # Root path to access bundle.yaml
     targetRevision: main
     directory:
-      recurse: true
+      include:
+        - bundle.yaml  # Ensure only the CRD bundle is applied
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
