@@ -85,22 +85,22 @@ spec:
     helm:
       skipCrds: false
       values: |
-    #     alertmanager:
-    #       config:
-    #         route:
-    #           group_by: ['namespace']
-    #           group_wait: 30s
-    #           group_interval: 5m
-    #           repeat_interval: 12h
-    #           receiver: default
-    #           routes:
-    #           - receiver: default
-    #             matchers:
-    #               - alertname =~ "InfoInhibitor|Watchdog"
-    #         receivers:
-    #           - name: default
-    #             pagerduty_configs:
-    #             - service_key: {{ .Values.observability.pdkey }}
+        # alertmanager:
+        #   config:
+        #     route:
+        #       group_by: ['namespace']
+        #       group_wait: 30s
+        #       group_interval: 5m
+        #       repeat_interval: 12h
+        #       receiver: default
+        #       routes:
+        #       - receiver: default
+        #         matchers:
+        #           - alertname =~ "InfoInhibitor|Watchdog"
+        #     receivers:
+        #       - name: default
+        #         pagerduty_configs:
+        #         - service_key: {{ .Values.observability.pdkey }}
         prometheus:
           prometheusSpec:
             retention: {{ .Values.observability.retention }}
@@ -112,16 +112,16 @@ spec:
                   resources:
                     requests:
                       storage: {{ .Values.observability.storageSize }}
-    #     grafana:
-    #       service:
-    #         # type: LoadBalancer
-    #       additionalDataSources:
-    #         - name: loki
-    #           type: loki
-    #           url: http://loki.observability.svc.cluster.local:3100
-    #         - name: tempo
-    #           type: tempo
-    #           url: http://tempo.observability.svc.cluster.local:3100
+        # grafana:
+        #   service:
+        #     # type: LoadBalancer
+        #   additionalDataSources:
+        #     - name: loki
+        #       type: loki
+        #       url: http://loki.observability.svc.cluster.local:3100
+        #     - name: tempo
+        #       type: tempo
+        #       url: http://tempo.observability.svc.cluster.local:3100
     chart: kube-prometheus-stack
   destination:
     server: 'https://kubernetes.default.svc'
