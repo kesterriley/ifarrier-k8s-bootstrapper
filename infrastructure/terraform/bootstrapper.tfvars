@@ -3,7 +3,7 @@
 # ============================== DOKS CONFIG ==============================
 
 doks_cluster_name_prefix = "k8s-ifarrier"
-doks_k8s_version         = "1.32.1"
+doks_k8s_version         = "1.32.2"
 doks_cluster_region      = "lon1"
 
 # Main pool configuration (REQUIRED)
