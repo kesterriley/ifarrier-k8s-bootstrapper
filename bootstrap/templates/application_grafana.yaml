@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://grafana.github.io/helm-charts
-    targetRevision: 7.0.5
+    targetRevision: "7.0.5"
     chart: grafana
     helm:
       values: |
@@ -28,8 +28,6 @@ spec:
             kubernetes.io/ingress.class: "traefik"
             cert-manager.io/cluster-issuer: "letsencrypt-issuer"
           labels: {}
-          path: /
-          pathType: Prefix
           hosts:
             - grafana.kester.pro
           tls:
