@@ -36,6 +36,9 @@ apply: init clear
 	cd infrastructure/terraform && \
 	terraform apply --auto-approve "tf-bootstrapper.out"
 
+bootstrap: clear
+	kubectl apply -f bootstrap/bootstrap.yaml
+
 destroy-me: init clear
 	cd infrastructure/terraform && \
 	terraform destroy --var-file=bootstrapper.tfvars --auto-approve
