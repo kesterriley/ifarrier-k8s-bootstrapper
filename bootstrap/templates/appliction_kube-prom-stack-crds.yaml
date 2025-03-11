@@ -73,7 +73,7 @@ spec:
   source:
     repoURL: https://github.com/prometheus-community/helm-charts.git
     path: charts/kube-prometheus-stack/charts/crds
-    targetRevision: kube-prometheus-stack-69.8.2
+    targetRevision: HEAD
     helm:
       releaseName: kube-prometheus-stack-crds
   destination:
