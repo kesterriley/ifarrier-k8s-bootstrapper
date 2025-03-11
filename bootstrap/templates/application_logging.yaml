@@ -27,6 +27,5 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - PruneLast=true
-      - ServerSideApply=true
 {{- end }}
   #http://loki.observability.svc.cluster.local:3100
