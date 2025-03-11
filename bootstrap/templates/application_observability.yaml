@@ -81,7 +81,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/prometheus-community/helm-charts.git
-    path: charts/kube-prometheus-stack/charts/crds
+    path: charts/alertmanager
     targetRevision: HEAD
     helm:
       releaseName: observability
