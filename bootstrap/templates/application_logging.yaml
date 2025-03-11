@@ -26,5 +26,6 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - PruneLast=true
 {{- end }}
   #http://loki.observability.svc.cluster.local:3100
