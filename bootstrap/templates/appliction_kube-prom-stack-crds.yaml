@@ -1,33 +1,4 @@
-# {{- if .Values.observability.enable }}
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: kube-prometheus-stack-crds
-#   namespace: argocd
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "-1"
-#   finalizers:
-#     - resources-finalizer.argocd.argoproj.io
-# spec:
-#   destination:
-#     server: 'https://kubernetes.default.svc'
-#     namespace: observability
-#   project: default
-#   source:
-#     repoURL: https://github.com/prometheus-community/helm-charts.git
-#     path: charts/kube-prometheus-stack/charts/crds
-#     targetRevision: kube-prometheus-stack-69.8.2
-#     directory:
-#       recurse: true
-#   syncPolicy:
-#     syncOptions:
-#       - CreateNamespace=true
-#       - Replace=true
-#     automated:
-#       prune: true
-#       selfHeal: true
-# {{- end }}
-
+{{- if .Values.observability.enable }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -39,21 +10,50 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    server: "https://kubernetes.default.svc"
-    namespace: argocd  # CRDs do not need a specific namespace
+    server: 'https://kubernetes.default.svc'
+    namespace: observability
   project: default
   source:
-    repoURL: "https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main"
-    path: ""  # No path needed, since we're fetching a single file
-    targetRevision: HEAD
-    helm:  # Using Helm tricks to fetch a raw manifest
-      values: |
-        files:
-          - url: "https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/bundle.yaml"
+    repoURL: https://github.com/prometheus-community/helm-charts.git
+    path: charts/kube-prometheus-stack/charts/crds/crds/
+    targetRevision: main   # kube-prometheus-stack-69.8.2
+    directory:
+      recurse: true
   syncPolicy:
     syncOptions:
+      - CreateNamespace=true
       - Replace=true
     automated:
       prune: true
       selfHeal: true
+{{- end }}
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kube-prometheus-stack-crds
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "-1"
+#   finalizers:
+#     - resources-finalizer.argocd.argoproj.io
+# spec:
+#   destination:
+#     server: "https://kubernetes.default.svc"
+#     namespace: argocd  # CRDs do not need a specific namespace
+#   project: default
+#   source:
+#     repoURL: "https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main"
+#     path: ""  # No path needed, since we're fetching a single file
+#     targetRevision: HEAD
+#     helm:  # Using Helm tricks to fetch a raw manifest
+#       values: |
+#         files:
+#           - url: "https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/bundle.yaml"
+#   syncPolicy:
+#     syncOptions:
+#       - Replace=true
+#     automated:
+#       prune: true
+#       selfHeal: true
 
