@@ -62,19 +62,3 @@ spec:
       prune: true
       selfHeal: true
 
-  ignoreDifferences:
-    - group: "networking.k8s.io"
-      kind: "Ingress"
-      jsonPointers:
-        - "/status"
-
-  healthChecks:
-    - apiVersion: networking.k8s.io/v1
-      kind: Ingress
-      name: grafana
-      namespace: observability
-      status:
-        loadBalancer:
-          ingress:
-            - hostname: "grafana.kester.pro"
-
