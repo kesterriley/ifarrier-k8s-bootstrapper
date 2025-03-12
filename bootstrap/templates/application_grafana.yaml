@@ -32,6 +32,8 @@ spec:
           labels: {}
           hosts:
             - grafana.kester.pro
+          paths:
+            - /
           tls:
             - hosts:
                 - grafana.kester.pro
