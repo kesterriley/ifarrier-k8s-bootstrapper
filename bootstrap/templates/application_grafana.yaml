@@ -51,7 +51,10 @@ spec:
               memory: "1Gi"
               cpu: "500m"
 
-        adminPassword: "jasdas#198*HASDSSADAS" # Set a secure password
+        admin:
+          existingSecret: "grafana-admin-credentials"
+          userKey: GF_SECURITY_ADMIN_USER
+          passwordKey: GF_SECURITY_ADMIN_PASSWORD
 
   destination:
     server: https://kubernetes.default.svc
