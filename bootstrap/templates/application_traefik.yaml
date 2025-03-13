@@ -15,7 +15,7 @@ spec:
     chart: traefik
     helm:
     repoURL: https://traefik.github.io/charts
-    targetRevision: v20.8.0
+    targetRevision: v34.4.1
   syncPolicy:
     automated:
       prune: true
