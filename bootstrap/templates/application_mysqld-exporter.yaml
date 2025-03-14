@@ -20,8 +20,7 @@ spec:
         collectors:
           auto_increment.columns: true
           binlog_size: true
-          engine_innodb_status: false
-          engine_tokudb_status: false
+          engine_innodb_status: true
           global_status: true
           global_variables: true
           info_schema.clientstats: true
