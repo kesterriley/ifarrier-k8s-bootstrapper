@@ -14,7 +14,6 @@ spec:
         serviceMonitor:
           enabled: true
         mysql:
-          host: "ifarrier-mariadb.ifarrier.svc.cluster.local"
           existingConfigSecret:
             name: "exporter-secrets"
             key: "my.cnf"
@@ -25,11 +24,11 @@ spec:
           engine_tokudb_status: false
           global_status: true
           global_variables: true
-          info_schema.clientstats: false
+          info_schema.clientstats: true
           info_schema.innodb_metrics: true
-          info_schema.innodb_tablespaces: false
-          info_schema.innodb_cmp: false
-          info_schema.innodb_cmpmem: false
+          info_schema.innodb_tablespaces: true
+          info_schema.innodb_cmp: true
+          info_schema.innodb_cmpmem: true
           info_schema.processlist: true
           info_schema.processlist.min_time: 0
           info_schema.query_response_time: true
