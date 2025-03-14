@@ -25,7 +25,7 @@ spec:
         additionalDataSources:
           - name: loki
             type: loki
-            url: http://loki.observability.svc.cluster.local:3100
+            url: http://logging-loki.observability.svc.cluster.local:3100
 
         ingress:
           enabled: true
