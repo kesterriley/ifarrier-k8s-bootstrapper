@@ -94,8 +94,8 @@ spec:
 
         admin:
           existingSecret: "grafana-admin-credentials"
-          userKey: GF_SECURITY_ADMIN_USER
-          passwordKey: GF_SECURITY_ADMIN_PASSWORD
+          userKey: admin-user
+          passwordKey: admin-password
 
   destination:
     server: https://kubernetes.default.svc
