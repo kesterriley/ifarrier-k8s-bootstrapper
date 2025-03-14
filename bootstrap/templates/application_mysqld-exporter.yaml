@@ -14,7 +14,7 @@ spec:
         serviceMonitor:
           enabled: true
         mysql:
-          host: "ifarrier-mariadb-0.ifarrier.svc.cluster.local"
+          host: "ifarrier-mariadb.ifarrier.svc.cluster.local"
           existingSecret: "ifarrier-secrets"
           userKey: "DB_USERNAME"
           passwordKey: "DB_PASSWORD"
