@@ -16,8 +16,8 @@ spec:
         mysql:
           host: "ifarrier-mariadb.ifarrier.svc.cluster.local"
           existingConfigSecret:
-            name: exporter-secrets
-            key: my.cnf
+            name: "exporter-secrets"
+            key: "my.cnf"
         collectors:
           auto_increment.columns: true
           binlog_size: true
