@@ -23,15 +23,18 @@ spec:
               targetPort: 3000
 
         datasources:
-        - name: Prometheus
-          type: prometheus
-          url: http://prometheus-server
-          access: proxy
-          isDefault: true
-        - name: loki
-          type: loki
-          url: http://logging-loki.observability.svc.cluster.local:3100
-          access: proxy
+          datasources.yaml:
+            apiVersion: 1
+            datasources
+            - name: Prometheus
+              type: prometheus
+              url: http://prometheus-server
+              access: proxy
+              isDefault: true
+            - name: loki
+              type: loki
+              url: http://logging-loki.observability.svc.cluster.local:3100
+              access: proxy
 
         ingress:
           enabled: true
