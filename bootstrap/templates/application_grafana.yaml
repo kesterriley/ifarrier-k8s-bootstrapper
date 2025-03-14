@@ -25,16 +25,43 @@ spec:
         datasources:
           datasources.yaml:
             apiVersion: 1
-            datasources
+            datasources:
             - name: Prometheus
               type: prometheus
-              url: http://prometheus-server
+              url: http://prometheus-server.observability.svc.cluster.local
               access: proxy
               isDefault: true
             - name: loki
               type: loki
               url: http://logging-loki.observability.svc.cluster.local:3100
               access: proxy
+
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 3000
+
+        livenessProbe:
+          httpGet:
+            path: /api/health
+            port: 3000
+          initialDelaySeconds: 60
+          timeoutSeconds: 30
+          failureThreshold: 10
+
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 472
+          runAsGroup: 472
+          fsGroup: 472
+
+        containerSecurityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+          seccompProfile:
+            type: RuntimeDefault
 
         ingress:
           enabled: true
@@ -65,7 +92,10 @@ spec:
               memory: "1Gi"
               cpu: "500m"
 
-        adminPassword: "jasdas#198*HASDSSADAS" # Set a secure password
+        admin:
+          existingSecret: "grafana-admin-credentials"
+          userKey: GF_SECURITY_ADMIN_USER
+          passwordKey: GF_SECURITY_ADMIN_PASSWORD
 
   destination:
     server: https://kubernetes.default.svc
