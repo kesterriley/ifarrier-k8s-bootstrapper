@@ -13,6 +13,10 @@ resource "helm_release" "argocd" {
   # values = [
   #   file(var.argocd_additional_helm_values_file)
   # ]
+
+  depends_on = [
+    helm_release.sealed-secrets
+  ]
 }
 
 resource "helm_release" "argocd-apps" {

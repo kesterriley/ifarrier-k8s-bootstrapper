@@ -1,3 +1,17 @@
+# ===================== SEALED SECRETS =======================
+
+variable "sealed_secret_certificate_common_name" {
+  type        = string
+  default     = "sealed-secrets-key"
+  description = "Common Name for Sealed Secrets"
+}
+
+variable "sealed_secret_certificate_organization" {
+  type        = string
+  default     = "iFarrier.com"
+  description = "Organisation Name for Sealed Secrets"
+}
+
 # ===================== DO CONFIG VARS =======================
 variable "digital_ocean_token" {
   description = "Personal Access Token to access the DigitalOcean API"
