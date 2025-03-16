@@ -21,12 +21,12 @@
 #               traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
 #               traefik.ingress.kubernetes.io/router.tls: "true"
 #             hosts:
-#               - prometheus.kester.pro
+#               - prometheus.ifarrier.com
 #             paths:
 #               - "/*"  # Ensures correct routing
 #             tls:
 #               - hosts:
-#                   - prometheus.kester.pro
+#                   - prometheus.ifarrier.com
 #                 secretName: prometheus-tls
 #           persistentVolume:
 #             enabled: true
@@ -75,12 +75,12 @@ spec:
               traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
               traefik.ingress.kubernetes.io/router.tls: "true"
             hosts:
-              - prometheus.kester.pro
+              - prometheus.ifarrier.com
             paths:
               - "/*"  # Ensures correct routing
             tls:
               - hosts:
-                  - prometheus.kester.pro
+                  - prometheus.ifarrier.com
                 secretName: prometheus-tls
           persistentVolume:
             enabled: true

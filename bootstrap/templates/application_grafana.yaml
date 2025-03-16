@@ -73,12 +73,12 @@ spec:
             traefik.ingress.kubernetes.io/router.tls: "true"
           labels: {}
           hosts:
-            - grafana.kester.pro
+            - grafana.ifarrier.com
           paths:
             - /
           tls:
             - hosts:
-                - grafana.kester.pro
+                - grafana.ifarrier.com
               secretName: grafana-tls
 
         persistence:

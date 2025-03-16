@@ -1,5 +1,5 @@
 # Global
-domain: kester.pro
+domain: ifarrier.com
 storageClass: "do-block-storage"
 logging:
   enable: true

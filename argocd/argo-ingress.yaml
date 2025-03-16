@@ -10,7 +10,7 @@ metadata:
 spec:
   rules:
     # Add domain
-    - host: argocd.kester.pro
+    - host: argocd.ifarrier.com
       http:
         paths:
           - path: /
@@ -23,4 +23,4 @@ spec:
   tls:
     - secretName: argocd-secret-tls
       hosts:
-        - argocd.kester.pro
+        - argocd.ifarrier.com
