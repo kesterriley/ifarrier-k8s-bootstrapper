@@ -67,7 +67,7 @@ spec:
       values: |
         server:
           ingress:
-            enabled: true
+            enabled: false
             ingressClassName: traefik  # Explicitly set the ingress class
             annotations:
               kubernetes.io/ingress.class: "traefik"
