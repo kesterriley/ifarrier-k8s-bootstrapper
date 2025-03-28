@@ -98,6 +98,8 @@ spec:
           passwordKey: admin-password
           admin_email: grafana@ifarrier.com
         grafana.ini:
+          server:
+            root_url: https://grafana.ifarrier.com/
           auth.github:
             enabled: true
             allow_sign_up: true
