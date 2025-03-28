@@ -101,8 +101,8 @@ spec:
           enabled: true
           allow_sign_up: true
           auto_login: false
-          client_id = $__file{/etc/secrets/auth_generic_oauth/client_id}
-          client_secret = $__file{/etc/secrets/auth_generic_oauth/client_secret}
+          client_id: $__file{/etc/secrets/auth_generic_oauth/client_id}
+          client_secret: $__file{/etc/secrets/auth_generic_oauth/client_secret}
           scopes: user:email,read:org
           auth_url: https://github.com/login/oauth/authorize
           token_url: https://github.com/login/oauth/access_token
