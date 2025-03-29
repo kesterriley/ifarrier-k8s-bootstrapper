@@ -36,6 +36,14 @@ spec:
               url: http://logging-loki.observability.svc.cluster.local:3100
               access: proxy
 
+        sidecar:
+          dashboards:
+            enabled: true
+            searchNamespace: ALL
+          alerts:
+            enabled: true
+            searchNamespace: ALL
+
         readinessProbe:
           httpGet:
             path: /api/health
