@@ -1,29 +1,29 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: grafana-dashboards
-  namespace: argocd
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: observability
-  source:
-    path: .kubernetes/grafana
-    repoURL: git@github.com:kesterriley/iFarrier-install.git
-    targetRevision: HEAD
-    directory:
-      recurse: true
-  sources: []
-  project: default
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
-    retry:
-      limit: 2
-    backoff:
-      duration: 5s
-      maxDuration: 3m0s
-      factor: 2
+{{/*apiVersion: argoproj.io/v1alpha1*/}}
+{{/*kind: Application*/}}
+{{/*metadata:*/}}
+{{/*  name: grafana-dashboards*/}}
+{{/*  namespace: argocd*/}}
+{{/*spec:*/}}
+{{/*  destination:*/}}
+{{/*    server: https://kubernetes.default.svc*/}}
+{{/*    namespace: observability*/}}
+{{/*  source:*/}}
+{{/*    path: .kubernetes/grafana*/}}
+{{/*    repoURL: git@github.com:kesterriley/iFarrier-install.git*/}}
+{{/*    targetRevision: HEAD*/}}
+{{/*    directory:*/}}
+{{/*      recurse: true*/}}
+{{/*  sources: []*/}}
+{{/*  project: default*/}}
+{{/*  syncPolicy:*/}}
+{{/*    automated:*/}}
+{{/*      prune: true*/}}
+{{/*      selfHeal: true*/}}
+{{/*    syncOptions:*/}}
+{{/*      - CreateNamespace=true*/}}
+{{/*    retry:*/}}
+{{/*      limit: 2*/}}
+{{/*    backoff:*/}}
+{{/*      duration: 5s*/}}
+{{/*      maxDuration: 3m0s*/}}
+{{/*      factor: 2*/}}
