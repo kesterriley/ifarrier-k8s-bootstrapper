@@ -36,6 +36,14 @@ spec:
               url: http://logging-loki.observability.svc.cluster.local:3100
               access: proxy
 
+        dashboards:
+          default:
+            prometheus-stats:
+              # Ref: https://grafana.com/dashboards/2
+              gnetId: 2
+              revision: 2
+              datasource: Prometheus
+
         readinessProbe:
           httpGet:
             path: /api/health
