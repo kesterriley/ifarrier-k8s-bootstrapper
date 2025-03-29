@@ -36,30 +36,6 @@ spec:
               url: http://logging-loki.observability.svc.cluster.local:3100
               access: proxy
 
-        dashboardProviders:
-          dashboardproviders.yaml:
-            apiVersion: 1
-            providers:
-              - name: 'default'
-                orgId: 1
-                folder: ''
-                type: file
-                disableDeletion: false
-                editable: true
-                options:
-                  path: /var/lib/grafana/dashboards/default
-
-        dashboards:
-          default:
-            prometheus-stats:
-              gntId: 2
-              version: 2
-            loki-dashboard-quick-search
-              gntId: 12019
-              version: 2
-              datasource: Prometheus
-
-
         readinessProbe:
           httpGet:
             path: /api/health
