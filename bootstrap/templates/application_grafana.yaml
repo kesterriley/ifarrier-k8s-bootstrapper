@@ -36,30 +36,7 @@ spec:
               url: http://logging-loki.observability.svc.cluster.local:3100
               access: proxy
 
-        dashboards:
-          dashboards.yaml:
-            apiVersion: 1
-            providers:
-             - name: 'prometheus-stats'
-               gnetId: 2
-               revision: 2
-               datasource: Prometheus
 
-{{/*            dashboards:*/}}
-{{/*              default:*/}}
-{{/*                prometheus-stats:*/}}
-{{/*                  # Ref: https://grafana.com/dashboards/2*/}}
-{{/*                  gnetId: 2*/}}
-{{/*                  revision: 2*/}}
-{{/*                  datasource: prometheus*/}}
-{{/*                loki-dashboard-quick-search:*/}}
-{{/*                  gnetId: 12019*/}}
-{{/*                  revision: 2*/}}
-{{/*                  datasource:*/}}
-{{/*                    - name: DS_PROMETHEUS*/}}
-{{/*                      value: prometheus*/}}
-{{/*                    - name: DS_LOKI*/}}
-{{/*                      value: loki*/}}
 
         readinessProbe:
           httpGet:
