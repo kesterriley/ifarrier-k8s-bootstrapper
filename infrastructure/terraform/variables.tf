@@ -47,7 +47,7 @@ variable "doks_default_node_pool" {
   default = {
     name       = "bootstrapper-default"
     node_count = 3
-    size       = "s-2vcpu-4gb"
+    size       = "s-4vcpu-8gb"
     auto_scale = true
     min_nodes = 3
     max_nodes = 5
